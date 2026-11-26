@@ -6,6 +6,7 @@ const status = document.getElementById("screenStatus");
 const prev = document.getElementById("previousScreen");
 const next = document.getElementById("nextScreen");
 
+// comentario Javier test 1 rama js
 let current = 0;
 let touchStartX = 0;
 
