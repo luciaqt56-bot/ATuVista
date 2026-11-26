@@ -6,7 +6,6 @@ const status = document.getElementById("screenStatus");
 const prev = document.getElementById("previousScreen");
 const next = document.getElementById("nextScreen");
 
-/*Prueba de actualizaciones de git 1*/
 let current = 0;
 let touchStartX = 0;
 
