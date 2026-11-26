@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1554a0">
+  <meta name="description" content="A Tu Vista: herramientas accesibles de reconocimiento y lectura para personas con baja visión.">
+  <title>A Tu Vista · Accesibilidad visual</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#producto" aria-label="A Tu Vista, ir a reconocimiento de productos">
+      <img src="logotipo.jpeg" alt="A tu vista" class="brand-logo">
+    </a>
+    <div class="top-actions">
+      <span class="screen-status" id="screenStatus" aria-live="polite">Pantalla 1 de 3</span>
+      <button class="icon-button" id="helpButton" type="button" aria-label="Ayuda" title="Ayuda">?</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <div class="screen-track" id="screenTrack" aria-label="Funciones principales">
+
+      <!-- PANTALLA 1: PRODUCTOS (maquetación inspirada en la funcionalidad 3) -->
+      <section class="screen screen-product" id="producto" aria-labelledby="productTitle">
+        <div class="screen-heading">
+          <h1 id="productTitle">Reconocimiento de productos</h1>
+        </div>
+
+        <div class="product-layout">
+          <div class="product-card">
+            <div class="camera-frame" aria-label="Vista previa de cámara">
+              <span class="corner c-tl"></span>
+              <span class="corner c-tr"></span>
+              <span class="corner c-bl"></span>
+              <span class="corner c-br"></span>
+              <div class="camera-placeholder">
+                <svg viewBox="0 0 120 90" aria-hidden="true">
+                  <path d="M14 26h20l8-11h36l8 11h20v49H14z"/>
+                  <circle cx="60" cy="50" r="17"/>
+                </svg>
+                <strong>Cámara</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="audio-panel product-audio" id="productPanel">
+            <button class="play-button" id="productPlay" type="button" aria-label="Reproducir descripción del producto">
+              <span class="speaker-icon" aria-hidden="true">
+                <svg viewBox="0 0 28 24">
+                  <path d="M3 8.5h4.5L14 3.5v17l-6.5-5H3z"/>
+                  <path d="M18.5 7.5a6.2 6.2 0 0 1 0 9"/>
+                  <path d="M21.8 4.8a10.2 10.2 0 0 1 0 14.4"/>
+                </svg>
+              </span>
+              <span class="play-symbol" aria-hidden="true">▶</span>
+              <span class="play-text">Play</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANTALLA 2: PERSONAS, PAISAJES Y COLORES (maquetación inspirada en la funcionalidad 3) -->
+      <section class="screen screen-recognition" id="reconocimiento" aria-labelledby="recognitionTitle">
+        <div class="screen-heading">
+          <h1 id="recognitionTitle">Personas, paisajes y colores</h1>
+        </div>
+
+        <div class="recognition-layout">
+          <div class="recognition-card">
+            <div class="camera-frame" aria-label="Vista previa de cámara">
+              <span class="corner c-tl"></span>
+              <span class="corner c-tr"></span>
+              <span class="corner c-bl"></span>
+              <span class="corner c-br"></span>
+              <div class="camera-placeholder">
+                <div class="color-strip" aria-label="Colores verde, morado y naranja">
+                  <span class="color-dot dot-green"></span>
+                  <span class="color-dot dot-purple"></span>
+                  <span class="color-dot dot-orange"></span>
+                </div>
+                <svg viewBox="0 0 120 90" aria-hidden="true">
+                  <path d="M14 26h20l8-11h36l8 11h20v49H14z"/>
+                  <circle cx="60" cy="50" r="17"/>
+                </svg>
+                <strong>Cámara</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="audio-panel recognition-audio" id="recognitionPanel">
+            <button class="play-button" id="recognitionPlay" type="button" aria-label="Reproducir descripción">
+              <span class="speaker-icon" aria-hidden="true">
+                <svg viewBox="0 0 28 24">
+                  <path d="M3 8.5h4.5L14 3.5v17l-6.5-5H3z"/>
+                  <path d="M18.5 7.5a6.2 6.2 0 0 1 0 9"/>
+                  <path d="M21.8 4.8a10.2 10.2 0 0 1 0 14.4"/>
+                </svg>
+              </span>
+              <span class="play-symbol" aria-hidden="true">▶</span>
+              <span class="play-text">Play</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANTALLA 3: DOCUMENTOS -->
+      <section class="screen screen-documents" id="documentos" aria-labelledby="documentsTitle">
+        <div class="screen-heading">
+          <h1 id="documentsTitle">Documentos importantes</h1>
+        </div>
+
+        <div class="documents-layout" id="documentsGridView">
+          <div class="documents-card">
+            <div class="document-grid" id="documentGrid" aria-label="Documentos disponibles">
+              <!-- Las tres tarjetas visibles se generan desde app.js -->
+            </div>
+
+            <div class="grid-footer">
+              <button class="page-arrow" id="previousDocuments" type="button" aria-label="Ver los tres documentos anteriores">‹</button>
+              <span id="documentCounter" aria-live="polite">1–3 de 9</span>
+              <button class="page-arrow" id="nextDocument" type="button" aria-label="Ver los tres documentos siguientes">›</button>
+            </div>
+          </div>
+
+          <div class="audio-panel document-audio" id="documentPanel">
+            <button class="play-button" id="documentPlay" type="button" aria-label="Escuchar documento seleccionado">
+              <span class="speaker-icon" aria-hidden="true">
+                <svg viewBox="0 0 28 24">
+                  <path d="M3 8.5h4.5L14 3.5v17l-6.5-5H3z"/>
+                  <path d="M18.5 7.5a6.2 6.2 0 0 1 0 9"/>
+                  <path d="M21.8 4.8a10.2 10.2 0 0 1 0 14.4"/>
+                </svg>
+              </span>
+              <span class="play-symbol" aria-hidden="true">▶</span>
+              <span class="play-text">Play</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="document-detail" id="documentDetail" hidden>
+          <button class="back-button" id="backToDocuments" type="button">← Volver a documentos</button>
+
+          <article class="paper-preview">
+            <div class="paper-heading">
+              <span class="paper-icon">▤</span>
+              <h2 id="documentName">Currículum</h2>
+            </div>
+            <div class="paper-lines" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <p id="documentDescription">Vista previa del documento seleccionado.</p>
+          </article>
+
+          <div class="detail-actions">
+            <button class="mic-button" id="documentMic" type="button" aria-label="Leer documento en voz alta">
+              <svg viewBox="0 0 64 64" aria-hidden="true">
+                <rect x="24" y="8" width="16" height="31" rx="8"/>
+                <path d="M16 30v3a16 16 0 0 0 32 0v-3M32 49v8M23 57h18"/>
+              </svg>
+            </button>
+            <span class="action-label">Pulsa para escuchar</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="screen-nav" aria-label="Cambiar de función">
+      <div class="nav-controls">
+        <button type="button" class="nav-arrow" id="previousScreen" aria-label="Pantalla anterior">←</button>
+        <div class="screen-dots">
+          <button type="button" class="screen-dot active" data-screen="0" aria-label="Ir a pantalla 1" aria-current="page"></button>
+          <button type="button" class="screen-dot" data-screen="1" aria-label="Ir a pantalla 2"></button>
+          <button type="button" class="screen-dot" data-screen="2" aria-label="Ir a pantalla 3"></button>
+        </div>
+        <button type="button" class="nav-arrow" id="nextScreen" aria-label="Pantalla siguiente">→</button>
+      </div>
+      <span class="swipe-hint" aria-hidden="true">Desliza y cambia de función</span>
+    </nav>
+  </main>
+
+  <dialog id="helpDialog" class="help-dialog">
+    <form method="dialog">
+      <button class="dialog-close" aria-label="Cerrar ayuda">×</button>
+    </form>
+    <h2>Cómo usar A Tu Vista</h2>
+    <p>Cada función ocupa una pantalla. Desliza hacia la derecha o izquierda, usa las flechas inferiores o pulsa los puntos para cambiar de pantalla.</p>
+    <p>Los botones grandes permiten iniciar la lectura o reproducción de audio. Esta maqueta muestra la interfaz; la conexión real con cámara, reconocimiento y documentos deberá integrarse con los servicios de la aplicación.</p>
+    <button class="primary-button" id="closeHelp" type="button">Entendido</button>
+  </dialog>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
